@@ -4,6 +4,7 @@ export default withAuth({
   pages: {
     signIn: '/auth/signin',
   },
+  secret: process.env.NEXTAUTH_SECRET || 'aura_oa_nextauth_secret_key_2026',
 });
 
 export const config = {

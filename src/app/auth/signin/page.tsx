@@ -31,7 +31,7 @@ function SignInContent() {
           </p>
         </div>
 
-        {/* Google Sign-In Button */}
+        {/* Sign-In Options */}
         <div className="space-y-3">
           <button
             type="button"
@@ -59,6 +59,25 @@ function SignInContent() {
               />
             </svg>
             <span>{isLoading ? 'Connecting to Google...' : 'Continue with Google'}</span>
+          </button>
+
+          <div className="relative flex py-1 items-center">
+            <div className="flex-grow border-t border-zinc-800" />
+            <span className="flex-shrink mx-2 text-[10px] font-mono uppercase text-zinc-500">or</span>
+            <div className="flex-grow border-t border-zinc-800" />
+          </div>
+
+          <button
+            type="button"
+            onClick={() => {
+              setIsLoading(true);
+              signIn('credentials', { callbackUrl });
+            }}
+            disabled={isLoading}
+            className="w-full flex items-center justify-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-400 px-4 py-2.5 text-xs font-bold text-zinc-950 transition shadow-md disabled:opacity-50"
+          >
+            <Zap className="h-3.5 w-3.5" fill="currentColor" />
+            <span>Instant Demo / Guest Access</span>
           </button>
         </div>
 
